@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430" font-family="Helvetica, Arial, sans-serif">
+  <rect width="720" height="430" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="19" font-weight="700" fill="#1a1a1a">3rd-tri liver: check GLUCOSE + FIBRINOGEN before you commit</text>
+  <text x="360" y="47" text-anchor="middle" font-size="12.5" fill="#666">i pattern-match the itch to ICP and stop — these 2 labs split all three</text>
+
+  <!-- table header -->
+  <g font-size="12.5" font-weight="700" fill="#333">
+    <rect x="20" y="62" width="150" height="34" fill="#eef2f7" stroke="#ccd" stroke-width="1"/>
+    <rect x="170" y="62" width="120" height="34" fill="#eef2f7" stroke="#ccd" stroke-width="1"/>
+    <rect x="290" y="62" width="120" height="34" fill="#eef2f7" stroke="#ccd" stroke-width="1"/>
+    <rect x="410" y="62" width="180" height="34" fill="#eef2f7" stroke="#ccd" stroke-width="1"/>
+    <rect x="590" y="62" width="110" height="34" fill="#eef2f7" stroke="#ccd" stroke-width="1"/>
+    <text x="95" y="84" text-anchor="middle">dx</text>
+    <text x="230" y="84" text-anchor="middle">GLUCOSE</text>
+    <text x="350" y="84" text-anchor="middle">FIBRINOGEN</text>
+    <text x="500" y="84" text-anchor="middle">hallmark</text>
+    <text x="645" y="84" text-anchor="middle">action</text>
+  </g>
+
+  <!-- ICP row -->
+  <g font-size="12">
+    <rect x="20" y="96" width="150" height="74" fill="#f4faf5" stroke="#ccd"/>
+    <rect x="170" y="96" width="120" height="74" fill="#fff" stroke="#ccd"/>
+    <rect x="290" y="96" width="120" height="74" fill="#fff" stroke="#ccd"/>
+    <rect x="410" y="96" width="180" height="74" fill="#fff" stroke="#ccd"/>
+    <rect x="590" y="96" width="110" height="74" fill="#fff" stroke="#ccd"/>
+    <text x="95" y="128" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1b5e20">ICP</text>
+    <text x="95" y="148" text-anchor="middle" font-size="10.5" fill="#666">cholestasis</text>
+    <text x="230" y="138" text-anchor="middle" font-weight="700" fill="#2e7d32">NORMAL</text>
+    <text x="350" y="138" text-anchor="middle" font-weight="700" fill="#2e7d32">NORMAL</text>
+    <text x="500" y="124" text-anchor="middle" fill="#444">itch palms/soles,</text>
+    <text x="500" y="140" text-anchor="middle" fill="#444">NO rash, ↑bile acids</text>
+    <text x="500" y="156" text-anchor="middle" font-size="10.5" fill="#888">normal coags</text>
+    <text x="645" y="135" text-anchor="middle" font-weight="700" fill="#1b5e20">ursodiol</text>
+  </g>
+
+  <!-- HELLP row -->
+  <g font-size="12">
+    <rect x="20" y="170" width="150" height="74" fill="#fff6ee" stroke="#ccd"/>
+    <rect x="170" y="170" width="120" height="74" fill="#fff" stroke="#ccd"/>
+    <rect x="290" y="170" width="120" height="74" fill="#fff" stroke="#ccd"/>
+    <rect x="410" y="170" width="180" height="74" fill="#fff" stroke="#ccd"/>
+    <rect x="590" y="170" width="110" height="74" fill="#fff" stroke="#ccd"/>
+    <text x="95" y="202" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b34700">HELLP</text>
+    <text x="95" y="222" text-anchor="middle" font-size="10.5" fill="#666">on the preE spectrum</text>
+    <text x="230" y="212" text-anchor="middle" font-weight="700" fill="#2e7d32">NORMAL</text>
+    <text x="350" y="212" text-anchor="middle" font-weight="700" fill="#2e7d32">NORMAL</text>
+    <text x="500" y="198" text-anchor="middle" fill="#444">Hemolysis, ↑LFTs,</text>
+    <text x="500" y="214" text-anchor="middle" fill="#444">Low Platelets</text>
+    <text x="500" y="230" text-anchor="middle" font-size="10.5" fill="#888">glucose/fibrinogen OK</text>
+    <text x="645" y="209" text-anchor="middle" font-weight="700" fill="#b34700">deliver</text>
+  </g>
+
+  <!-- AFLP row -->
+  <g font-size="12">
+    <rect x="20" y="244" width="150" height="78" fill="#fdf3f2" stroke="#ccd"/>
+    <rect x="170" y="244" width="120" height="78" fill="#fdecea" stroke="#ccd"/>
+    <rect x="290" y="244" width="120" height="78" fill="#fdecea" stroke="#ccd"/>
+    <rect x="410" y="244" width="180" height="78" fill="#fff" stroke="#ccd"/>
+    <rect x="590" y="244" width="110" height="78" fill="#fff" stroke="#ccd"/>
+    <text x="95" y="278" text-anchor="middle" font-size="13.5" font-weight="700" fill="#a93226">AFLP</text>
+    <text x="95" y="298" text-anchor="middle" font-size="10.5" fill="#666">hepatic synthetic</text>
+    <text x="95" y="312" text-anchor="middle" font-size="10.5" fill="#666">failure</text>
+    <text x="230" y="288" text-anchor="middle" font-weight="700" fill="#c0392b">↓↓ LOW</text>
+    <text x="230" y="306" text-anchor="middle" font-size="10" fill="#888">hypoglycemia</text>
+    <text x="350" y="288" text-anchor="middle" font-weight="700" fill="#c0392b">↓↓ LOW</text>
+    <text x="350" y="306" text-anchor="middle" font-size="10" fill="#888">DIC</text>
+    <text x="500" y="276" text-anchor="middle" fill="#444">liver FAILURE +</text>
+    <text x="500" y="292" text-anchor="middle" fill="#444">↑Cr, ↑uric acid,</text>
+    <text x="500" y="308" text-anchor="middle" fill="#444">N/V, encephalopathy</text>
+    <text x="645" y="287" text-anchor="middle" font-weight="700" fill="#a93226">deliver NOW</text>
+  </g>
+
+  <!-- tell banner -->
+  <rect x="20" y="336" width="680" height="78" rx="8" fill="#111"/>
+  <text x="360" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">THE TELL — two labs, not the itch</text>
+  <text x="360" y="382" text-anchor="middle" font-size="12" fill="#ddd">hypoglycemia + LOW fibrinogen = AFLP (NOT ICP, even if she's itchy)</text>
+  <text x="360" y="402" text-anchor="middle" font-size="12" fill="#bbb">low platelets but glucose/fibrinogen normal = HELLP &#160;|&#160; everything normal + bile acids = ICP</text>
+</svg>

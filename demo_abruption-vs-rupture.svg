@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="440" viewBox="0 0 680 440" font-family="Helvetica, Arial, sans-serif">
+  <rect width="680" height="440" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="340" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a1a">3rd-tri bleeding: ABRUPTION vs RUPTURE</text>
+  <text x="340" y="50" text-anchor="middle" font-size="13" fill="#666">read the UTERUS + the fetal STATION</text>
+
+  <!-- divider -->
+  <line x1="340" y1="64" x2="340" y2="372" stroke="#ddd" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- ============ LEFT: ABRUPTION ============ -->
+  <rect x="70" y="72" width="200" height="26" rx="13" fill="#8B1A1A"/>
+  <text x="170" y="90" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">ABRUPTION</text>
+
+  <!-- firm uterus: thick double wall = taut/clenched -->
+  <ellipse cx="170" cy="200" rx="74" ry="88" fill="#f7e9e9" stroke="#8B1A1A" stroke-width="8"/>
+  <ellipse cx="170" cy="200" rx="62" ry="75" fill="none" stroke="#8B1A1A" stroke-width="2"/>
+  <!-- placenta band + retroplacental clot wedge -->
+  <path d="M120,150 Q170,128 220,150" fill="none" stroke="#5a3a3a" stroke-width="9" stroke-linecap="round"/>
+  <polygon points="150,150 196,150 173,176" fill="#C0392B"/>
+  <!-- baby held LOW (stable station) -->
+  <circle cx="150" cy="228" r="14" fill="#8B1A1A"/>
+  <path d="M150,242 q30,4 26,-26" fill="none" stroke="#8B1A1A" stroke-width="11" stroke-linecap="round"/>
+  <!-- station-held marker -->
+  <line x1="120" y1="262" x2="220" y2="262" stroke="#2e7d32" stroke-width="3"/>
+  <text x="170" y="280" text-anchor="middle" font-size="11" font-weight="700" fill="#2e7d32">station HELD</text>
+  <!-- lightning = pain -->
+  <polygon points="248,150 232,184 246,184 230,214 262,176 248,176" fill="#F2C200" stroke="#b8860b" stroke-width="1"/>
+
+  <!-- labels -->
+  <text x="170" y="312" text-anchor="middle" font-size="15" font-weight="700" fill="#8B1A1A">FIRM + TENDER</text>
+  <text x="170" y="330" text-anchor="middle" font-size="11.5" fill="#444">tachysystole q1–2 min</text>
+  <text x="170" y="346" text-anchor="middle" font-size="11.5" fill="#444">red wedge = retroplacental clot</text>
+  <text x="170" y="362" text-anchor="middle" font-size="11" fill="#888">RF: chronic HTN · cocaine · trauma</text>
+
+  <!-- ============ RIGHT: RUPTURE ============ -->
+  <rect x="410" y="72" width="200" height="26" rx="13" fill="#D35400"/>
+  <text x="510" y="90" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">UTERINE RUPTURE</text>
+
+  <!-- soft/torn uterus: thin droopy wall + a jagged TEAR on the wall -->
+  <path d="M444,205 a66,82 0 1 1 132,0 a66,82 0 0 1 -50,76"
+        fill="#fdeee3" stroke="#D35400" stroke-width="3.5"/>
+  <!-- jagged tear (gap in the wall) -->
+  <polyline points="576,176 560,168 574,156 556,150 572,138 552,134"
+            fill="none" stroke="#D35400" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="576,176 560,168 574,156 556,150 572,138 552,134 590,150 588,176" fill="#ffffff"/>
+  <!-- dashed prior scar = risk factor -->
+  <path d="M452,238 q58,22 116,0" fill="none" stroke="#777" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <text x="510" y="262" text-anchor="middle" font-size="10.5" fill="#777">prior C-section / classical scar (RF)</text>
+  <!-- baby RISING out through tear -->
+  <circle cx="556" cy="150" r="13" fill="#D35400"/>
+  <path d="M556,138 q26,2 22,-24" fill="none" stroke="#D35400" stroke-width="10" stroke-linecap="round"/>
+  <!-- big up arrow = LOST station -->
+  <g stroke="#c0392b" stroke-width="6" fill="none" stroke-linecap="round">
+    <line x1="600" y1="200" x2="600" y2="120"/>
+    <polyline points="586,138 600,118 614,138"/>
+  </g>
+  <text x="600" y="216" text-anchor="middle" font-size="11" font-weight="700" fill="#c0392b">station LOST</text>
+  <!-- lightning = pain through epidural -->
+  <polygon points="430,150 414,184 428,184 412,214 444,176 430,176" fill="#F2C200" stroke="#b8860b" stroke-width="1"/>
+
+  <!-- labels -->
+  <text x="510" y="312" text-anchor="middle" font-size="15" font-weight="700" fill="#D35400">SOFT + LOSES STATION</text>
+  <text x="510" y="330" text-anchor="middle" font-size="11.5" fill="#444">pain breaks THROUGH the epidural</text>
+  <text x="510" y="346" text-anchor="middle" font-size="11.5" fill="#444">fetal parts palpable in abdomen</text>
+  <text x="510" y="362" text-anchor="middle" font-size="11" fill="#888">clinical dx → emergent laparotomy</text>
+
+  <!-- ============ THE TELL banner ============ -->
+  <rect x="20" y="386" width="640" height="40" rx="8" fill="#111"/>
+  <text x="340" y="404" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">THE TELL — read the uterus + station</text>
+  <text x="340" y="420" text-anchor="middle" font-size="12" fill="#ddd">firm + tender + station HELD = abruption &#160;&#160;|&#160;&#160; soft + station LOST = rupture</text>
+</svg>

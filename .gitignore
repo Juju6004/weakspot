@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Build output (the deck is regenerated from source; the sample lives in examples/)
+/*.apkg
+
+# OS / editor
+.DS_Store
+*.swp

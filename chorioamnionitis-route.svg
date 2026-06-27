@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430" font-family="Helvetica, Arial, sans-serif">
+  <rect width="720" height="430" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="19" font-weight="700" fill="#1a1a1a">Chorioamnionitis: DELIVER + abx — but the route is VAGINAL</text>
+  <text x="360" y="47" text-anchor="middle" font-size="12.5" fill="#666">i reflex to cesarean here — wrong 3×. don't cut into an infected field</text>
+
+  <!-- stem box -->
+  <rect x="180" y="62" width="360" height="48" rx="8" fill="#fff7e0" stroke="#b8860b" stroke-width="1.8"/>
+  <text x="360" y="82" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a5b00">intra-amniotic infection:</text>
+  <text x="360" y="100" text-anchor="middle" font-size="12" fill="#7a5b00">maternal fever + uterine tenderness / fetal tachycardia</text>
+
+  <!-- arrow down -->
+  <line x1="360" y1="110" x2="360" y2="132" stroke="#555" stroke-width="2"/>
+  <polyline points="353,126 360,134 367,126" fill="none" stroke="#555" stroke-width="2"/>
+
+  <!-- action 1: deliver + abx regardless of GA -->
+  <rect x="150" y="134" width="420" height="40" rx="8" fill="#e6f4ea" stroke="#2e7d32" stroke-width="2"/>
+  <text x="360" y="159" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1b5e20">DELIVER + IV antibiotics — regardless of gestational age</text>
+
+  <!-- arrow down to route gate -->
+  <line x1="360" y1="174" x2="360" y2="196" stroke="#555" stroke-width="2"/>
+  <polyline points="353,190 360,198 367,190" fill="none" stroke="#555" stroke-width="2"/>
+
+  <!-- route gate -->
+  <polygon points="360,200 470,238 360,276 250,238" fill="#eef2f7" stroke="#34495e" stroke-width="2"/>
+  <text x="360" y="234" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2c3e50">route?</text>
+  <text x="360" y="252" text-anchor="middle" font-size="11" fill="#555">reassuring FHR + no</text>
+  <text x="360" y="266" text-anchor="middle" font-size="11" fill="#555">other OB indication</text>
+
+  <!-- left: vaginal/induction (right answer) -->
+  <line x1="250" y1="238" x2="120" y2="238" stroke="#2e7d32" stroke-width="2"/>
+  <text x="180" y="230" text-anchor="middle" font-size="11" font-weight="700" fill="#2e7d32">default</text>
+  <rect x="20" y="296" width="300" height="74" rx="8" fill="#e6f4ea" stroke="#2e7d32" stroke-width="2"/>
+  <text x="170" y="320" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1b5e20">VAGINAL — induce / augment</text>
+  <text x="170" y="340" text-anchor="middle" font-size="11.5" fill="#444">reassuring FHR → oxytocin</text>
+  <text x="170" y="357" text-anchor="middle" font-size="11.5" fill="#444">infection is NOT a reason to cut</text>
+
+  <!-- right: cesarean (only standard indications) -->
+  <line x1="470" y1="238" x2="600" y2="238" stroke="#c0392b" stroke-width="2"/>
+  <text x="540" y="230" text-anchor="middle" font-size="11" font-weight="700" fill="#c0392b">only if…</text>
+  <rect x="400" y="296" width="300" height="74" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+  <text x="550" y="320" text-anchor="middle" font-size="13.5" font-weight="700" fill="#a93226">CESAREAN</text>
+  <text x="550" y="340" text-anchor="middle" font-size="11.5" fill="#444">ONLY for standard OB indications</text>
+  <text x="550" y="357" text-anchor="middle" font-size="11.5" fill="#444">(non-reassuring FHR, arrest, etc.)</text>
+
+  <!-- tell banner -->
+  <rect x="20" y="380" width="680" height="42" rx="8" fill="#111"/>
+  <text x="360" y="398" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">THE TELL</text>
+  <text x="360" y="416" text-anchor="middle" font-size="12" fill="#ddd">deliver + abx, but VAGINAL/induction preferred — cesarean into an infected field ↑ maternal morbidity</text>
+</svg>

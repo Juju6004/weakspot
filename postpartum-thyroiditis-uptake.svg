@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="450" viewBox="0 0 680 450" font-family="Helvetica, Arial, sans-serif">
+  <rect width="680" height="450" fill="#ffffff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="19" font-weight="700" fill="#1a1a1a">Postpartum thyrotoxicosis: read the UPTAKE</text>
+  <text x="340" y="47" text-anchor="middle" font-size="12.5" fill="#666">overproduction vs destruction — it changes the whole treatment</text>
+
+  <line x1="340" y1="60" x2="340" y2="372" stroke="#ddd" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- ===== LEFT: GRAVES (overproduction, HIGH uptake) ===== -->
+  <rect x="60" y="70" width="220" height="26" rx="13" fill="#1f6f8b"/>
+  <text x="170" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">GRAVES (overproduction)</text>
+
+  <!-- thyroid = factory -->
+  <path d="M120,150 q50,-30 100,0 q-12,46 -50,46 q-38,0 -50,-46 z" fill="#d6ecf3" stroke="#1f6f8b" stroke-width="3"/>
+  <circle cx="150" cy="158" r="8" fill="#1f6f8b"/><circle cx="190" cy="158" r="8" fill="#1f6f8b"/>
+  <!-- "smoke" = lots of hormone made -->
+  <g fill="none" stroke="#1f6f8b" stroke-width="2.5" stroke-linecap="round">
+    <path d="M150,128 q6,-12 0,-22"/><path d="M170,124 q6,-12 0,-22"/><path d="M190,128 q6,-12 0,-22"/>
+  </g>
+  <!-- HIGH uptake scan = filled dark -->
+  <circle cx="170" cy="232" r="26" fill="#1f6f8b" stroke="#0d4a5e" stroke-width="2"/>
+  <text x="170" y="237" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">HIGH</text>
+  <text x="170" y="280" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f6f8b">RAIU uptake HIGH</text>
+  <text x="170" y="300" text-anchor="middle" font-size="12" fill="#333">TRAb POSITIVE</text>
+  <text x="170" y="318" text-anchor="middle" font-size="12" fill="#333">bruit / orbitopathy</text>
+  <!-- treatment -->
+  <rect x="86" y="332" width="168" height="30" rx="6" fill="#e6f4ea" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="170" y="352" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1b5e20">&#10003; THIONAMIDE works</text>
+
+  <!-- ===== RIGHT: POSTPARTUM (destruction, LOW uptake) ===== -->
+  <rect x="400" y="70" width="220" height="26" rx="13" fill="#8e44ad"/>
+  <text x="510" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">POSTPARTUM (destruction)</text>
+
+  <!-- thyroid = cracked, leaking preformed hormone -->
+  <path d="M460,150 q50,-30 100,0 q-12,46 -50,46 q-38,0 -50,-46 z" fill="#f1e3f7" stroke="#8e44ad" stroke-width="3"/>
+  <polyline points="500,128 492,150 506,160 498,196" fill="none" stroke="#8e44ad" stroke-width="3" stroke-linejoin="round"/>
+  <!-- leaking droplets = preformed hormone spilling out -->
+  <g fill="#c0392b">
+    <circle cx="470" cy="206" r="4"/><circle cx="510" cy="212" r="4"/><circle cx="548" cy="206" r="4"/>
+  </g>
+  <text x="510" y="230" text-anchor="middle" font-size="10.5" fill="#8e44ad">leaks PREformed hormone</text>
+  <!-- LOW uptake scan = empty/pale -->
+  <circle cx="510" cy="262" r="26" fill="#f7f2fa" stroke="#8e44ad" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="510" y="267" text-anchor="middle" font-size="11" font-weight="700" fill="#8e44ad">LOW</text>
+  <text x="510" y="300" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8e44ad">RAIU uptake LOW</text>
+  <text x="510" y="318" text-anchor="middle" font-size="12" fill="#333">TRAb NEG &#183; TPO POS &#183; painless</text>
+  <!-- treatment -->
+  <rect x="402" y="332" width="216" height="30" rx="6" fill="#fdeceaff" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="510" y="352" text-anchor="middle" font-size="12.5" font-weight="700" fill="#a93226">&#10007; NO thionamide &#183; &#10003; &#946;-blocker only</text>
+
+  <!-- tell banner -->
+  <rect x="20" y="382" width="640" height="56" rx="8" fill="#111"/>
+  <text x="340" y="406" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">THE TELL — read the uptake</text>
+  <text x="340" y="426" text-anchor="middle" font-size="12" fill="#ddd">LOW uptake = destruction (leaking) &#8594; &#946;-blocker, NO thionamide&#160;&#160;|&#160;&#160;HIGH = Graves &#8594; thionamide</text>
+</svg>

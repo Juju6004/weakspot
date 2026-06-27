@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="470" viewBox="0 0 720 470" font-family="Helvetica, Arial, sans-serif">
+  <rect width="720" height="470" fill="#ffffff"/>
+  <text x="360" y="28" text-anchor="middle" font-size="19" font-weight="700" fill="#1a1a1a">Red/painful breast: match on FINDINGS</text>
+  <text x="360" y="47" text-anchor="middle" font-size="12.5" fill="#666">laterality · fever · abx response · the NIPPLE — these split it (my biggest hole)</text>
+
+  <!-- row 1: 3 benign/infectious -->
+  <!-- engorgement -->
+  <rect x="20" y="60" width="222" height="150" rx="9" fill="#f4faf5" stroke="#2e7d32" stroke-width="1.8"/>
+  <text x="131" y="82" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1b5e20">ENGORGEMENT</text>
+  <text x="131" y="104" text-anchor="middle" font-size="11.5" font-weight="700" fill="#333">BILATERAL · diffuse firm</text>
+  <text x="131" y="122" text-anchor="middle" font-size="11.5" fill="#444">day 3–5, low-grade &lt;38.3</text>
+  <text x="131" y="140" text-anchor="middle" font-size="11.5" fill="#444">NO focal mass</text>
+  <text x="131" y="158" text-anchor="middle" font-size="11.5" fill="#444">(physiologic lactogenesis II)</text>
+  <rect x="40" y="172" width="182" height="28" rx="6" fill="#e6f4ea" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="131" y="191" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1b5e20">keep nursing/expressing</text>
+
+  <!-- mastitis -->
+  <rect x="249" y="60" width="222" height="150" rx="9" fill="#fff6ee" stroke="#D35400" stroke-width="1.8"/>
+  <text x="360" y="82" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b34700">MASTITIS</text>
+  <text x="360" y="104" text-anchor="middle" font-size="11.5" font-weight="700" fill="#333">UNILATERAL wedge erythema</text>
+  <text x="360" y="122" text-anchor="middle" font-size="11.5" fill="#444">fever &gt;38.3, weeks 2–4</text>
+  <text x="360" y="140" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b34700">nipple FISSURE = portal</text>
+  <text x="360" y="158" text-anchor="middle" font-size="11.5" fill="#444">S. aureus + milk stasis</text>
+  <rect x="269" y="172" width="182" height="28" rx="6" fill="#fdeee3" stroke="#D35400" stroke-width="1.2"/>
+  <text x="360" y="191" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b34700">empty breast + oral abx</text>
+
+  <!-- abscess -->
+  <rect x="478" y="60" width="222" height="150" rx="9" fill="#fdf3f2" stroke="#c0392b" stroke-width="1.8"/>
+  <text x="589" y="82" text-anchor="middle" font-size="13.5" font-weight="700" fill="#a93226">ABSCESS</text>
+  <text x="589" y="106" text-anchor="middle" font-size="11.5" font-weight="700" fill="#333">FLUCTUANT focal mass</text>
+  <text x="589" y="126" text-anchor="middle" font-size="11.5" fill="#444">localized, walled-off</text>
+  <circle cx="589" cy="150" r="14" fill="#f5c0b9" stroke="#c0392b" stroke-width="1.5"/>
+  <circle cx="589" cy="150" r="5" fill="#c0392b"/>
+  <rect x="498" y="172" width="182" height="28" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.2"/>
+  <text x="589" y="191" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a93226">I &amp; D (+ abx)</text>
+
+  <!-- row 2: the 2 cancers (don't miss) -->
+  <text x="360" y="238" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6c3483">↓ FAILS antibiotics / older patient → think CANCER, not "more abx" ↓</text>
+
+  <!-- IBC -->
+  <rect x="60" y="250" width="290" height="118" rx="9" fill="#f6f0fa" stroke="#8e44ad" stroke-width="1.8"/>
+  <text x="205" y="273" text-anchor="middle" font-size="13.5" font-weight="700" fill="#6c3483">INFLAMMATORY BREAST CA</text>
+  <text x="205" y="295" text-anchor="middle" font-size="11.5" fill="#444">peau d'orange, warm, indurated</text>
+  <text x="205" y="313" text-anchor="middle" font-size="11.5" font-weight="700" fill="#6c3483">FAILS abx · NO discrete mass</text>
+  <text x="205" y="331" text-anchor="middle" font-size="11.5" font-weight="700" fill="#6c3483">NIPPLE NORMAL (rules out Paget)</text>
+  <rect x="80" y="340" width="250" height="22" rx="6" fill="#efe1f5" stroke="#8e44ad" stroke-width="1.2"/>
+  <text x="205" y="356" text-anchor="middle" font-size="11.5" font-weight="700" fill="#6c3483">skin PUNCH biopsy</text>
+
+  <!-- Paget -->
+  <rect x="370" y="250" width="290" height="118" rx="9" fill="#f6f0fa" stroke="#8e44ad" stroke-width="1.8"/>
+  <text x="515" y="273" text-anchor="middle" font-size="13.5" font-weight="700" fill="#6c3483">PAGET DISEASE</text>
+  <text x="515" y="295" text-anchor="middle" font-size="11.5" font-weight="700" fill="#6c3483">eczematous / scaly NIPPLE</text>
+  <text x="515" y="313" text-anchor="middle" font-size="11.5" fill="#444">starts at nipple → areola</text>
+  <text x="515" y="331" text-anchor="middle" font-size="11.5" fill="#444">often underlying DCIS</text>
+  <rect x="390" y="340" width="250" height="22" rx="6" fill="#efe1f5" stroke="#8e44ad" stroke-width="1.2"/>
+  <text x="515" y="356" text-anchor="middle" font-size="11.5" font-weight="700" fill="#6c3483">mammography + biopsy</text>
+
+  <!-- tell banner -->
+  <rect x="20" y="382" width="680" height="74" rx="8" fill="#111"/>
+  <text x="360" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">THE TELL — the discriminators i keep missing</text>
+  <text x="360" y="426" text-anchor="middle" font-size="11.5" fill="#ddd">BILATERAL + afebrile = engorgement (not infection) &#160;|&#160; FAILS abx + NORMAL nipple = inflammatory cancer</text>
+  <text x="360" y="445" text-anchor="middle" font-size="11.5" fill="#ddd">eczematous NIPPLE = Paget &#160;|&#160; unilateral wedge + fissure = mastitis &#160;|&#160; fluctuant = abscess</text>
+</svg>

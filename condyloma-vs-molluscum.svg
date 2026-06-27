@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="470" viewBox="0 0 680 470" font-family="Helvetica, Arial, sans-serif">
+  <rect width="680" height="470" fill="#ffffff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="19" font-weight="700" fill="#1a1a1a">Anogenital papules: condyloma vs molluscum</text>
+  <text x="340" y="47" text-anchor="middle" font-size="12.5" fill="#666">9-valent HPV vaccine covers the cauliflower (6/11) &#8212; not the pearls</text>
+
+  <!-- LEFT: condyloma acuminata -->
+  <rect x="24" y="64" width="304" height="286" rx="10" fill="#f5f7fa" stroke="#34495e" stroke-width="1.5"/>
+  <text x="176" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#2c3e50">CONDYLOMA ACUMINATA</text>
+  <text x="176" y="106" text-anchor="middle" font-size="12" fill="#666">HPV 6 &amp; 11 (~90% of warts)</text>
+
+  <!-- cauliflower: clustered lobed bumps on a skin line -->
+  <line x1="60" y1="200" x2="292" y2="200" stroke="#d8b08c" stroke-width="3"/>
+  <g fill="#f3c9a8" stroke="#b5651d" stroke-width="1.5">
+    <circle cx="120" cy="186" r="11"/><circle cx="134" cy="178" r="10"/><circle cx="148" cy="186" r="11"/>
+    <circle cx="132" cy="170" r="9"/><circle cx="120" cy="174" r="8"/><circle cx="148" cy="174" r="8"/>
+    <circle cx="196" cy="188" r="10"/><circle cx="208" cy="180" r="9"/><circle cx="220" cy="188" r="10"/>
+    <circle cx="208" cy="172" r="8"/><circle cx="196" cy="178" r="7"/><circle cx="220" cy="178" r="7"/>
+  </g>
+
+  <g font-size="12">
+    <text x="176" y="262" text-anchor="middle" fill="#444">&#8226; soft, fleshy, cauliflower clusters</text>
+    <text x="176" y="282" text-anchor="middle" fill="#444">&#8226; non-oncogenic HPV 6/11</text>
+    <text x="176" y="306" text-anchor="middle" font-weight="700" fill="#2e7d32">&#8594; COVERED by 9-valent vaccine</text>
+  </g>
+
+  <!-- RIGHT: molluscum contagiosum -->
+  <rect x="352" y="64" width="304" height="286" rx="10" fill="#f5f7fa" stroke="#34495e" stroke-width="1.5"/>
+  <text x="504" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#2c3e50">MOLLUSCUM CONTAGIOSUM</text>
+  <text x="504" y="106" text-anchor="middle" font-size="12" fill="#666">poxvirus &#8212; not HPV</text>
+
+  <!-- pearly domed papules with central umbilication -->
+  <line x1="388" y1="200" x2="620" y2="200" stroke="#d8b08c" stroke-width="3"/>
+  <g>
+    <circle cx="438" cy="184" r="16" fill="#fbe9e7" stroke="#b5651d" stroke-width="2"/>
+    <circle cx="438" cy="184" r="4" fill="#c0392b"/>
+    <circle cx="504" cy="180" r="18" fill="#fbe9e7" stroke="#b5651d" stroke-width="2"/>
+    <circle cx="504" cy="180" r="4.5" fill="#c0392b"/>
+    <circle cx="572" cy="184" r="16" fill="#fbe9e7" stroke="#b5651d" stroke-width="2"/>
+    <circle cx="572" cy="184" r="4" fill="#c0392b"/>
+  </g>
+  <text x="504" y="228" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="700">central dimple (umbilication)</text>
+
+  <g font-size="12">
+    <text x="504" y="262" text-anchor="middle" fill="#444">&#8226; firm, pearly, dome-shaped</text>
+    <text x="504" y="282" text-anchor="middle" fill="#444">&#8226; central umbilication</text>
+    <text x="504" y="306" text-anchor="middle" font-weight="700" fill="#c0392b">&#8594; NOT covered by HPV vaccine</text>
+  </g>
+
+  <!-- tell banner -->
+  <rect x="20" y="372" width="640" height="78" rx="8" fill="#111"/>
+  <text x="340" y="396" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff">THE TELL</text>
+  <text x="340" y="418" text-anchor="middle" font-size="12.5" fill="#eee">cauliflower clusters = condyloma (HPV &#8594; vaccine). pearly + central dimple = molluscum (poxvirus).</text>
+  <text x="340" y="438" text-anchor="middle" font-size="12.5" fill="#bbb">the dimple is the molluscum giveaway; warts are rough/lobed, never umbilicated</text>
+</svg>
