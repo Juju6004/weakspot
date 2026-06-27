@@ -2,7 +2,7 @@
 
 A small, data-driven pipeline that turns the topics you *actually keep missing* into a structured Anki deck — and lets you rebuild that deck from source without ever losing your review history.
 
-Built on [`genanki`](https://github.com/kerrickstaley/genanki). Shipped with a worked example: an OB/GYN shelf-exam deck (84 cards) generated from a real question-log.
+Built on [`genanki`](https://github.com/kerrickstaley/genanki). Shipped with a worked example: an OB/GYN shelf-exam deck (104 cards: 9 image + 95 text) generated from a real question-log.
 
 ## Why this exists
 
@@ -48,7 +48,7 @@ build_deck.py     model/template + image cards; renders SVG→PNG at build time;
 text_cards.py     the text-only cards (TEXT_CARDS) + mnemonics (MNEM), keyed by cluster
 taxonomy.py       cluster → (system, discipline) map + the tag vocabulary
 *.svg             source for each image card (plain-text, editable, version-controlled)
-examples/         a built sample deck (OB/GYN shelf, 84 cards)
+examples/         a built sample deck (OB/GYN shelf, 104 cards)
 ```
 
 The pipeline is one-directional: **weak-area log → SVG → (temp) PNG → `.apkg` → import.** Rendered PNGs are written to a temp dir, bundled into the deck, and deleted — only the editable SVG sources live in the repo.
