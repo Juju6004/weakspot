@@ -133,6 +133,17 @@ CLUSTER_TAX = {
     "progestin_challenge": (["Reproductive", "Endocrine"], "Physiology"),
     "endometrial_ablation": ("Reproductive", "Pharmacology"),
     "endometriosis": ("Reproductive", "Pathology"),
+    "infertility_tubal_hsg": ("Reproductive", "Pathology"),
+
+    # b15 (2026-06-28, UWorld) — new content gaps
+    "lactational_amenorrhea": (["Reproductive", "Endocrine"], "Physiology"),
+    "leiomyoma_menopause_regression": ("Reproductive", "Pathology"),
+    "spinal_epidural_abscess": ("Nervous", "Pathology"),
+    "tamoxifen_adverse_effects": (["Reproductive", "Heme_Onc"], "Pharmacology"),
+    "obstetric_anal_sphincter_injury": (["Reproductive", "GI"], "Pathology"),
+    "pseudocyesis": (["Psychiatric", "Reproductive"], "Behavioral_Science"),
+    "shoulder_dystocia_simulation": ("Reproductive", "Biostatistics_Ethics"),
+    "substituted_judgment": ("Multisystem", "Biostatistics_Ethics"),
     "leiomyoma_iud": ("Reproductive", "Pathology"),
     "age_sti_screening": (["Reproductive", "Multisystem"], ["Microbiology::Bacteria", "Biostatistics_Ethics"]),
     "HSIL_colposcopy": ("Reproductive", ["Pathology", "Microbiology::Virology"]),

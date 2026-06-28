@@ -6,11 +6,13 @@ Sourced from your own question-log (QLog) weak-cluster summaries — curated, no
 Each dict has no "svg" key, so build_deck.py leaves the Image field empty.
 """
 
-def C(front, answer, discrim, trap, cluster, mnem=""):
+def C(front, answer, discrim, trap, cluster, mnem="", misses=""):
     # tags are assembled at build time from the taxonomy (rotation/system/discipline);
     # here we just carry the stable cluster identity.
+    # misses = space-separated QLog session codes where this concept was missed
+    # (e.g. "b4 b5 b6 b15"); build_deck renders a scaled repeat-miss badge from it.
     return dict(front=front, answer=answer, discrim=discrim, trap=trap, mnem=mnem,
-                cluster=cluster)
+                cluster=cluster, misses=misses)
 
 # Mnemonics keyed by cluster — kept separate so they're easy to edit/prune.
 # Keep them standard, or add your own personal hooks — prune whatever doesn't land.
@@ -83,14 +85,79 @@ TEXT_CARDS = [
       "Levothyroxine — treat the hypothyroidism; the prolactin normalizes on its own.",
       "Primary hypothyroidism → ↑TRH, which also stimulates lactotrophs → hyperprolactinemia.",
       "Don't reflex to MRI or a dopamine agonist (cabergoline/bromocriptine). Only chase a prolactinoma if prolactin stays up after TSH is fixed.",
-      "galactorrhea_hyperprolactinemia"),
+      "galactorrhea_hyperprolactinemia", misses="b9 b11"),
 
     C("Woman &lt;40 with amenorrhea + hot flashes + vaginal atrophy. Hormone panel shows high "
       "FSH and high LH.<br><br><b>What is the estradiol doing, and what's the diagnosis?</b>",
       "Estradiol is LOW. Diagnosis = primary ovarian insufficiency (hypergonadotropic hypogonadism).",
       "Ovary quits → no follicles → no negative feedback → pituitary screams (↑FSH/LH) while estrogen falls. Vaginal atrophy = it's ovarian-level.",
-      "The part you keep flipping: estradiol is LOW, not high. Causes: chemo/alkylators, radiation, Turner.",
-      "POI_POF"),
+      "The part you keep flipping: estradiol is LOW, not high. And don't fall for Sheehan — POI's FSH is HIGH (hypergonadotropic) with NORMAL prolactin; Sheehan (post-PPH pituitary infarct) has LOW FSH + can't lactate (low prolactin). Causes of POI: chemo/alkylators, radiation, Turner.",
+      "POI_POF", misses="b4 b5 b6 b15"),
+
+    C("Primary infertility ~12 mo. REGULAR ovulatory menses with molimina, normal semen analysis, "
+      "and an adolescent hospitalization for PID (fever, dyspareunia, discharge).<br><br><b>Next test?</b>",
+      "Hysterosalpingogram — first-line for suspected tubal-factor infertility (prior PID → tubal scarring). No intraperitoneal contrast spill = obstruction.",
+      "Regular ovulatory menses + molimina point AWAY from an endocrine/ovulatory cause toward an anatomic (tubal) one — and the PID history is the setup.",
+      "Don't order the endocrine panel (FSH/TSH/testosterone) — that's the workup for IRREGULAR menses (POI/thyroid/PCOS), which bring oligomenorrhea + hot flashes/hirsutism. Laparoscopy needs prior surgery/dyspareunia; mid-cycle LH + progesterone challenge are for ovulatory dysfunction she doesn't have.",
+      "infertility_tubal_hsg"),
+
+    # ===================== b15 (2026-06-28, UWorld) — new content gaps =====================
+    C("Exclusively breastfeeding, ~8 wk postpartum: amenorrhea + nighttime hot flushes. "
+      "Normal BP, lactating fine.<br><br><b>Mechanism — and why not Sheehan or PCOS?</b>",
+      "Breastfeeding → ↑prolactin → inhibits GnRH → ↓LH/FSH → anovulation + lactational amenorrhea; low estrogen → vasomotor flushes.",
+      "Intact lactation + normal BP rule OUT Sheehan (post-PPH panhypopituitarism → CAN'T lactate, everything low). Vasomotor sx need LOW estrogen.",
+      "Don't pick PCOS — it has NORMAL estrogen, so no vasomotor symptoms. And Sheehan can't be lactating. This is physiologic prolactin-driven GnRH suppression.",
+      "lactational_amenorrhea"),
+
+    C("49-yo, perimenopausal, 3×4 cm INTRAMURAL fibroid, mild symptoms, thin endometrium. "
+      "Asks what'll happen to it over time.<br><br><b>Natural history?</b>",
+      "Spontaneous regression — fibroids are estrogen-responsive; estrogen falls near menopause → the fibroid shrinks and symptoms improve.",
+      "Intramural (not pedunculated) → no torsion risk; abundant myometrial blood supply → no spontaneous necrosis. Perimenopausal → regression expected.",
+      "Don't reflex to rapid growth / sarcoma — that concern is a POSTmenopausal fibroid that's ENLARGING (sarcoma arises de novo). A perimenopausal fibroid should regress.",
+      "leiomyoma_menopause_regression"),
+
+    C("Days after a labor epidural: fever 38.2 + progressive focal back pain → quadriceps "
+      "weakness, ↓knee reflex, sensory loss.<br><br><b>Dx and next step?</b>",
+      "Spinal epidural abscess → URGENT MRI of the spine (then surgical decompression + antibiotics).",
+      "FEVER + a PROGRESSIVE neuro deficit after neuraxial anesthesia = abscess (direct inoculation). Benign labor-related nerve injury has NO fever and doesn't progress.",
+      "Don't write it off as labor-associated peripheral nerve injury (no fever) or radiculopathy, and don't reassure — progression goes to paralysis. Image now.",
+      "spinal_epidural_abscess"),
+
+    C("On tamoxifen ≥5 yr for ER+ breast cancer.<br><br><b>Most common adverse effect — and "
+      "the SERM organ effects you can't miss?</b>",
+      "Hot flashes = most common. Tamoxifen is an estrogen AGONIST in the uterus → ↑endometrial cancer, uterine sarcoma, and VTE.",
+      "Mixed agonist/antagonist: antagonist in BREAST (the therapeutic point), agonist in UTERUS + bone. So uterine/VTE risks go UP.",
+      "Not ovarian cancer (may be DECREASED). Not endometrial atrophy — it's the opposite (proliferation). Doesn't drive CAD (lowers lipids).",
+      "tamoxifen_adverse_effects"),
+
+    C("Postpartum fecal/flatal incontinence after a THIRD-degree perineal laceration. "
+      "Exam: weak, asymmetric anal sphincter tone.<br><br><b>Next test?</b>",
+      "Endoanal ultrasonography — locates and sizes the external anal sphincter (EAS) defect to guide repair.",
+      "Weak/asymmetric sphincter tone (or a palpable defect) = STRUCTURAL EAS injury → image it. A normal exam would just get reassurance (resolves).",
+      "Don't reach for fiber/stool softeners — that's incontinence from constipation/impaction (she has 1–2 BMs/day; softeners would worsen it). CT/barium are inferior to endoanal US for the sphincter.",
+      "obstetric_anal_sphincter_injury"),
+
+    C("Trouble conceiving, now convinced she's pregnant: amenorrhea, morning sickness, "
+      "abdominal distension. TWO negative urine hCG; US shows an empty uterus / thin stripe. "
+      "The belief is fixed but NOT delusional.<br><br><b>Dx?</b>",
+      "Pseudocyesis — a persistent, nondelusional belief of pregnancy in a non-pregnant patient. Needs psychiatric evaluation.",
+      "Pregnancy SYMPTOMS but objective tests EXCLUDE pregnancy (neg hCG ×2 + empty uterus). Nondelusional = she can accept the evidence (vs a true delusion of pregnancy).",
+      "Not missed abortion — that has a POSITIVE test + a nonviable intrauterine gestation, and symptoms usually stop. Ectopic/mole both have positive hCG.",
+      "pseudocyesis"),
+
+    C("Shoulder dystocia is an emergency that's mostly UNPREDICTABLE (&gt;50% of cases have no "
+      "risk factors).<br><br><b>What best reduces neonatal complications (eg brachial plexus injury)?</b>",
+      "Scheduled, recurring simulation-based team training (whole clinical team) — sharpens team performance + the technical maneuvers.",
+      "Because it can't be predicted, you can't screen it away — you prepare by DRILLING the response with the team.",
+      "Not risk-factor checklists (most cases have none), not retrospective root-cause analysis (it's not a preventable error), not debriefings alone (they help communication, not the maneuvers).",
+      "shoulder_dystocia_simulation"),
+
+    C("Incapacitated patient, NO advance directive. Husband is the default surrogate; her parents "
+      "are involved.<br><br><b>What standard governs the decision, and what matters most?</b>",
+      "Substituted judgment — base the decision on what the PATIENT would have chosen, not the surrogate's own preference.",
+      "No advance directive → substituted judgment (reconstruct HER wishes). The surrogate's job is to estimate her choice, not impose his own.",
+      "Don't default to the husband's preference or the parents' values. Clinical findings/prognosis inform the choice, but the governing question is what SHE would have wanted.",
+      "substituted_judgment"),
 
     C("Postmenopausal woman: recurrent 'UTIs' with NEGATIVE cultures, dyspareunia, postcoital "
       "spotting. Exam: pale thin walls, lost rugae. Thin endometrial stripe.<br><br><b>Treatment?</b>",
@@ -356,7 +423,7 @@ TEXT_CARDS = [
       "Observe / reassure — no treatment, no workup.",
       "Asymptomatic Actinomyces = colonization → keep the IUD, no antibiotics. Now-normotensive prior gestational HTN → routine screening, not a 24-hr urine.",
       "This is your #1 cross-bank error: trusting 'normal' under distraction. The stem buries 'observe' under pressure to do something.",
-      "well_patient_observe"),
+      "well_patient_observe", misses="b14 b15"),
 
     C("Twin ultrasound: the dividing membrane shows a lambda (twin-peak) sign.<br><br>"
       "<b>Chorionicity, timing of the split, and membrane layer count?</b>",

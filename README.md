@@ -2,7 +2,9 @@
 
 A small, data-driven pipeline that turns the topics you *actually keep missing* into a structured Anki deck — and lets you rebuild that deck from source without ever losing your review history.
 
-Built on [`genanki`](https://github.com/kerrickstaley/genanki). Shipped with a worked example: an OB/GYN shelf-exam deck (104 cards: 9 image + 95 text) generated from a real question-log.
+Built on [`genanki`](https://github.com/kerrickstaley/genanki). Shipped with a worked example: an OB/GYN shelf-exam deck (113 cards: 9 image + 104 text) generated from a real question-log.
+
+> **This repo is a live record, not a frozen demo.** I'm a med student actively using `weakspot` for shelf prep — the example deck *is* my real weak set, and it grows as I keep logging question blocks. Card counts move, clusters get added, and the repeat-miss badges tick up. See [A live record](#a-live-record) below.
 
 ## Why this exists
 
@@ -41,6 +43,14 @@ Example queries in the Anki browser: `tag:discipline::Microbiology::Bacteria` (e
 
 A cluster with no taxonomy entry falls back to a default **and prints a build warning** — so a new card can't go silently untagged.
 
+## Repeat-miss badges
+
+When the *same* concept burns you across multiple logged sessions, the card carries a scaled badge baked from that miss history — **amber at 2×, orange at 3–4×, red "leech" at 5+** — plus a `repeat::N` tag so you can drill your most persistent holes as their own slice. The emphasis grows with the count, so the stuff you keep flipping *looks* louder than a one-off instead of blending in.
+
+```python
+C(front, answer, discrim, trap, cluster, misses="s4 s5 s6 s9")  # 4 misses → orange badge + repeat::4
+```
+
 ## How it's wired
 
 ```
@@ -48,7 +58,7 @@ build_deck.py     model/template + image cards; renders SVG→PNG at build time;
 text_cards.py     the text-only cards (TEXT_CARDS) + mnemonics (MNEM), keyed by cluster
 taxonomy.py       cluster → (system, discipline) map + the tag vocabulary
 *.svg             source for each image card (plain-text, editable, version-controlled)
-examples/         a built sample deck (OB/GYN shelf, 104 cards)
+examples/         a built sample deck (OB/GYN shelf, 113 cards)
 ```
 
 The pipeline is one-directional: **weak-area log → SVG → (temp) PNG → `.apkg` → import.** Rendered PNGs are written to a temp dir, bundled into the deck, and deleted — only the editable SVG sources live in the repo.
@@ -67,9 +77,11 @@ Add a card:
 
 > **SVG→PNG rendering** uses macOS `qlmanage` (Quick Look). On Linux, swap that one `subprocess` call in `build_deck.py` for `rsvg-convert` or `inkscape`.
 
-## A note on content
+## A live record
 
-The example deck is OB/GYN shelf material curated from a personal question-log — standard medical-education content, no patient data. The medicine in the cards is the author's own; the pipeline is the point.
+heads up — this isnt a polished one-and-done demo, its the actual tool im studying off of. im a med student grinding through clerkship shelves, and the OB/GYN example deck is my real weak set: the cards come straight from a question-log of stuff i actually kept missing, badges and all. so it moves. i log a qbank block, the genuine content holes get folded in as cards, the `missed:` ledgers tick up, the deck rebuilds. clone this a month from now and the counts wont match whats written above — thats the point. the deck tracks what im currently bad at, it doesnt sit frozen.
+
+the medicine in the cards is my own terse summaries from my qbank review — standard med-ed content, no patient data, nothing identifiable. the pipeline is the part im actually showing off; the OB content is just the worked example it happens to be carrying.
 
 ## License
 

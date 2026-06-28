@@ -64,6 +64,18 @@ hr#answer { border: none; border-top: 2px solid #ccc; margin: 14px 0; }
 .mnem { margin-top: 10px; padding: 8px 10px; font-size: 15px; line-height: 1.4;
         border-radius: 7px; background: #fff8e1; border-left: 3px solid #f2c200; color: #5b4a00; }
 
+/* repeat-miss badge — emphasis scales with the QLog miss count */
+.miss-badge { display: block; margin: 0 0 12px 0; padding: 6px 11px; border-radius: 6px;
+              font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+.miss-badge .miss-ledger { display: block; font-weight: 400; font-size: 11px;
+                           opacity: .8; margin-top: 2px; letter-spacing: 0; }
+.tier-amber  { background: #fff4d6; color: #8a6d00; border-left: 4px solid #e8b500; }
+.tier-orange { background: #ffe3cc; color: #9c4a00; border-left: 4px solid #ff7a18; }
+.tier-red    { background: #ffd9d6; color: #a01b10; border-left: 4px solid #e23b2e; }
+.nightMode .tier-amber  { background: #2a2410; color: #f0d98a; border-left-color: #e8b500; }
+.nightMode .tier-orange { background: #2e1d10; color: #ffb27a; border-left-color: #ff7a18; }
+.nightMode .tier-red    { background: #2e1413; color: #ff9b91; border-left-color: #e23b2e; }
+
 /* light mode */
 .answer { color: #1b5e20; }
 .trap   { color: #a93226; }
@@ -78,6 +90,34 @@ hr#answer { border: none; border-top: 2px solid #ccc; margin: 14px 0; }
 )
 
 deck = genanki.Deck(DECK_ID, "OBGYN Shelf::Weak clusters")
+
+
+def miss_badge(misses):
+    """Repeat-miss badge driven off QLog history.
+
+    misses = space-separated QLog session codes where this concept was missed
+    (e.g. "b4 b5 b6 b15"). Returns (badge_html, repeat_tags). The badge is
+    prepended to the Front field (renders on both sides — the "slow down" cue
+    is wanted on the answer side too). Emphasis scales with the count so a 5x
+    miss looks scarier than a one-off. Nothing renders below 2 misses.
+    """
+    codes = misses.split()
+    n = len(codes)
+    if n < 2:
+        return "", []
+    if n >= 5:
+        tier, icon, label = "tier-red", "🔥", f"leech &times;{n} &mdash; slow down"
+    elif n >= 3:
+        tier, icon, label = "tier-orange", "&#9888;", f"keeps catching you &times;{n}"
+    else:
+        tier, icon, label = "tier-amber", "&#9888;", f"repeat miss &times;{n}"
+    ledger = " &middot; ".join(codes)
+    badge = (f'<div class="miss-badge {tier}">{icon} {label}'
+             f'<span class="miss-ledger">missed: {ledger}</span></div>')
+    tags = [f"repeat::{n if n < 5 else '5plus'}"]
+    if n >= 5:
+        tags.append("leech")
+    return badge, tags
 
 # ----------------------------------------------------------------------
 # CARDS  — front, image filename, answer, discriminator, trap, tags
@@ -95,7 +135,8 @@ cards = [
         discrim=(
             "Firm + tender uterus with the fetus <b>holding station</b> = abruption. "
             "Rupture goes <b>soft</b>, the presenting part <b>loses station</b> / retracts, "
-            "and pain breaks through an epidural."
+            "pain breaks through an epidural, and you may feel <b>palpable fetal parts "
+            "(irregular protuberance)</b> with maternal shock."
         ),
         trap=(
             "Don't default to rupture just because pain is sudden — rupture needs a "
@@ -300,6 +341,11 @@ try:
         guid = genanki.guid_for(key)
         tags = tags_for(cluster, rotation=ROTATION, extra=c.get("extra"))
 
+        # repeat-miss badge (from the QLog miss history) → prepend to Front + tag
+        badge, repeat_tags = miss_badge(c.get("misses", "") or "")
+        tags = list(tags) + repeat_tags
+        front_field = badge + c["front"]
+
         svg = c.get("svg")
         if svg:
             svg_path = os.path.join(HERE, svg)
@@ -320,7 +366,7 @@ try:
         note = genanki.Note(
             model=model,
             fields=[
-                c["front"],
+                front_field,
                 img_field,
                 c["answer"],
                 c["discrim"],
