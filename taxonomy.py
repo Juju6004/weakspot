@@ -158,6 +158,50 @@ CLUSTER_TAX = {
     "congenital_toxoplasmosis": (["Nervous", "Multisystem"], "Microbiology::Parasitology"),
     "alpha_thalassemia_hydrops": (["Reproductive", "Heme_Onc"], ["Genetics", "Pathology"]),
     "uterine_carcinosarcoma": ("Reproductive", "Pathology"),
+
+    # n1 (2026-06-29, NBME) — card every concept
+    "pyelo_pregnancy_urine_culture": (["Renal_Urinary", "Reproductive"], "Pathology"),
+    "cyclophosphamide_hemorrhagic_cystitis": ("Renal_Urinary", "Pharmacology"),
+    "urge_incontinence_detrusor": ("Renal_Urinary", "Physiology"),
+    "ureteral_injury_hysterectomy": (["Renal_Urinary", "Reproductive"], "Anatomy"),
+    "pregestational_dm_cardiac": (["Reproductive", "Cardiovascular"], "Pathology"),
+    "cf_carrier_screen_partner": ("Reproductive", "Genetics"),
+    "rh_prevention_screening": (["Reproductive", "Heme_Onc"], "Pathology"),
+    "exercise_pregnancy_no_risk": ("Reproductive", "Physiology"),
+
+    # n2 (2026-06-29, NBME) — diagram-back cards
+    "iron_deficiency_pregnancy": (["Reproductive", "Heme_Onc"], "Pathology"),
+    "omphalocele_karyotype": ("Reproductive", "Genetics"),
+    "missed_abortion": ("Reproductive", "Pathology"),
+    "heterotopic_pregnancy": ("Reproductive", "Pathology"),
+    "eclampsia_bp_labetalol": (["Reproductive", "Cardiovascular"], "Pharmacology"),
+    "fascial_dehiscence": ("Reproductive", "Pathology"),
+    "hsv_delivery_mode": ("Reproductive", "Microbiology::Virology"),
+
+    # n3 (2026-06-29, NBME) — diagram-back cards
+    "epidural_hypotension_brady": ("Reproductive", "Physiology"),
+    "gbs_unknown_preterm": ("Reproductive", "Microbiology"),
+    "variable_decel_observe": ("Reproductive", "Physiology"),
+    "septic_pelvic_thrombophlebitis": (["Reproductive", "Heme_Onc"], "Pathology"),
+    "normal_lochia": ("Reproductive", "Physiology"),
+    "sbo_pregnancy_xray": (["GI", "Reproductive"], "Pathology"),
+    "carpal_tunnel_pregnancy": (["Nervous", "Reproductive"], "Pathology"),
+    "breast_fat_necrosis": ("Reproductive", "Pathology"),
+
+    # n4 (2026-06-29, NBME) — diagram-back cards
+    "fibrocystic_breast": ("Reproductive", "Pathology"),
+    "palpable_breast_mass_biopsy": ("Reproductive", "Pathology"),
+    "pid_site_fallopian": ("Reproductive", "Microbiology"),
+    "chlamydia_screening_under25": ("Reproductive", "Microbiology"),
+    "sexual_assault_gc_prophylaxis": ("Reproductive", "Pharmacology"),
+    "uterine_sarcoma_clinical": ("Reproductive", "Pathology"),
+    "vulvar_carcinoma": ("Reproductive", "Pathology"),
+    "ovarian_cancer_no_screening": ("Reproductive", "Biostatistics_Ethics"),
+
+    # n5 (2026-06-29, NBME) — diagram-back cards
+    "bowel_perforation_laparoscopy": (["GI", "Reproductive"], "Pathology"),
+    "lng_iud_endometrial_atrophy": ("Reproductive", "Pharmacology"),
+    "hospice_opioid_escalation": ("Multisystem", "Biostatistics_Ethics"),
     "leiomyoma_iud": ("Reproductive", "Pathology"),
     "age_sti_screening": (["Reproductive", "Multisystem"], ["Microbiology::Bacteria", "Biostatistics_Ethics"]),
     "HSIL_colposcopy": ("Reproductive", ["Pathology", "Microbiology::Virology"]),

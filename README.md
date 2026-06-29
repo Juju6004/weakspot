@@ -2,7 +2,7 @@
 
 A small, data-driven pipeline that turns the topics you *actually keep missing* into a structured Anki deck — and lets you rebuild that deck from source without ever losing your review history.
 
-Built on [`genanki`](https://github.com/kerrickstaley/genanki). Shipped with a worked example: an OB/GYN shelf-exam deck (125 cards: 9 image + 116 text) generated from a real question-log.
+Built on [`genanki`](https://github.com/kerrickstaley/genanki). Shipped with a worked example: an OB/GYN shelf-exam deck (159 cards) generated from a real question-log.
 
 > **This repo is a live record, not a frozen demo.** I'm a med student actively using `weakspot` for shelf prep — the example deck *is* my real weak set, and it grows as I keep logging question blocks. Card counts move, clusters get added, and the repeat-miss badges tick up. See [A live record](#a-live-record) below.
 
@@ -30,6 +30,7 @@ Two tiers, same front/back template:
 
 - **Text cards** (the bulk) — a tight clinical vignette + lead-in question on the front; **Answer → Tell** (the one-line discriminator) **→ Beats** (the trap it beats) **→ 💡 Mnemonic** (optional) on the back.
 - **Image cards** — same, with a hand-built SVG diagram on the back. An image card only earns its place when there's a *visual* discriminator you keep missing.
+- **Diagram-back cards** — the back is a generated arrow-chart (cue chips → *the tell* → boxed answer → a "ruled out" column with each distractor's one-line reason). Authored as data, laid out by `diagram.py` — no hand-placed coordinates, auto-sized, so the elimination logic reads as a chart instead of a paragraph.
 
 ## Three-axis tagging — study any slice
 
@@ -58,7 +59,9 @@ build_deck.py     model/template + image cards; renders SVG→PNG at build time;
 text_cards.py     the text-only cards (TEXT_CARDS) + mnemonics (MNEM), keyed by cluster
 taxonomy.py       cluster → (system, discipline) map + the tag vocabulary
 *.svg             source for each image card (plain-text, editable, version-controlled)
-examples/         a built sample deck (OB/GYN shelf, 125 cards)
+diagram.py        generates discriminator arrow-chart SVGs (the "diagram-back" cards) from a spec
+diagram_cards.py  the diagram-back cards (DIAGRAM_CARDS), keyed by cluster
+examples/         a built sample deck (OB/GYN shelf, 159 cards)
 ```
 
 The pipeline is one-directional: **weak-area log → SVG → (temp) PNG → `.apkg` → import.** Rendered PNGs are written to a temp dir, bundled into the deck, and deleted — only the editable SVG sources live in the repo.

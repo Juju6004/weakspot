@@ -42,8 +42,8 @@ model = genanki.Model(
 <hr id="answer">
 <div class="answer">{{Answer}}</div>
 {{#Image}}<div class="img">{{Image}}</div>{{/Image}}
-<div class="discrim"><b>Tell:</b> {{Discriminator}}</div>
-<div class="trap"><b>Beats:</b> {{Trap}}</div>
+{{#Discriminator}}<div class="discrim"><b>Tell:</b> {{Discriminator}}</div>{{/Discriminator}}
+{{#Trap}}<div class="trap"><b>Beats:</b> {{Trap}}</div>{{/Trap}}
 {{#Mnemonic}}<div class="mnem">💡 {{Mnemonic}}</div>{{/Mnemonic}}
 """,
         }
@@ -209,7 +209,7 @@ cards = [
         mnem="Constant = Conduit (fistula). If the leak has a trigger or a schedule, it's NOT VVF.",
         cluster="urinary_leakage",
         misses="b16",
-        extra=["discriminator"],
+        extra=["discriminator", "source::NBME"],  # n1-Q4 (stress) confirmed this card
     ),
     dict(
         front=(
@@ -320,6 +320,11 @@ cards = [
 from text_cards import TEXT_CARDS
 cards += TEXT_CARDS
 
+# Diagram-back cards (NBME format): explanation is a generated arrow-chart SVG.
+from diagram_cards import DIAGRAM_CARDS
+from diagram import discriminator_svg
+cards += DIAGRAM_CARDS
+
 # Multi-axis tags (rotation / system / discipline) assembled from the taxonomy.
 from taxonomy import tags_for
 
@@ -351,7 +356,21 @@ try:
 
         svg = c.get("svg")
         img = c.get("img")  # a ready-made raster (real photo/scan or a screenshot)
-        if svg:
+        diagram = c.get("diagram")  # a discriminator arrow-chart spec (generated SVG)
+        if diagram:
+            gen_path = os.path.join(build_dir, f"{cluster}.svg")
+            with open(gen_path, "w", encoding="utf-8") as fh:
+                fh.write(discriminator_svg(diagram))
+            png_name = f"{cluster}.png"
+            png_path = os.path.join(build_dir, png_name)
+            subprocess.run(
+                ["qlmanage", "-t", "-s", "1360", "-o", build_dir, gen_path],
+                check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+            )
+            os.replace(os.path.join(build_dir, os.path.basename(gen_path) + ".png"), png_path)
+            media.append(png_path)
+            img_field = f'<img src="{png_name}">'
+        elif svg:
             svg_path = os.path.join(HERE, svg)
             if not os.path.exists(svg_path):
                 raise SystemExit(f"Missing source SVG: {svg_path}")

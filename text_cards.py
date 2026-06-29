@@ -6,13 +6,14 @@ Sourced from your own question-log (QLog) weak-cluster summaries — curated, no
 Each dict has no "svg" key, so build_deck.py leaves the Image field empty.
 """
 
-def C(front, answer, discrim, trap, cluster, mnem="", misses=""):
+def C(front, answer, discrim, trap, cluster, mnem="", misses="", extra=None):
     # tags are assembled at build time from the taxonomy (rotation/system/discipline);
     # here we just carry the stable cluster identity.
     # misses = space-separated QLog session codes where this concept was missed
     # (e.g. "b4 b5 b6 b15"); build_deck renders a scaled repeat-miss badge from it.
+    # extra = additional flat tags (e.g. ["source::NBME", "nbme-only"]).
     return dict(front=front, answer=answer, discrim=discrim, trap=trap, mnem=mnem,
-                cluster=cluster, misses=misses)
+                cluster=cluster, misses=misses, extra=extra)
 
 # Mnemonics keyed by cluster — kept separate so they're easy to edit/prune.
 # Keep them standard, or add your own personal hooks — prune whatever doesn't land.
@@ -78,7 +79,7 @@ TEXT_CARDS = [
       "Urine β-hCG. Always — before TSH, prolactin, FSH, DEXA, or any imaging.",
       "Pregnancy itself causes amenorrhea (± galactorrhea) and makes every downstream test uninterpretable.",
       "Don't be lured to the dressed-up test. hCG first is the single most repeated GYN rule — free points.",
-      "pregnancy_first"),
+      "pregnancy_first", extra=["source::NBME"]),
 
     C("Amenorrhea + bilateral milky discharge. Pregnancy excluded. Prolactin 45, TSH 15.<br><br>"
       "<b>Treatment?</b>",
@@ -92,14 +93,14 @@ TEXT_CARDS = [
       "Estradiol is LOW. Diagnosis = primary ovarian insufficiency (hypergonadotropic hypogonadism).",
       "Ovary quits → no follicles → no negative feedback → pituitary screams (↑FSH/LH) while estrogen falls. Vaginal atrophy = it's ovarian-level.",
       "The part you keep flipping: estradiol is LOW, not high. And don't fall for Sheehan — POI's FSH is HIGH (hypergonadotropic) with NORMAL prolactin; Sheehan (post-PPH pituitary infarct) has LOW FSH + can't lactate (low prolactin). Causes of POI: chemo/alkylators, radiation, Turner.",
-      "POI_POF", misses="b4 b5 b6 b15"),
+      "POI_POF", misses="b4 b5 b6 b15 n5", extra=["source::NBME"]),
 
     C("Primary infertility ~12 mo. REGULAR ovulatory menses with molimina, normal semen analysis, "
       "and an adolescent hospitalization for PID (fever, dyspareunia, discharge).<br><br><b>Next test?</b>",
       "Hysterosalpingogram — first-line for suspected tubal-factor infertility (prior PID → tubal scarring). No intraperitoneal contrast spill = obstruction.",
       "Regular ovulatory menses + molimina point AWAY from an endocrine/ovulatory cause toward an anatomic (tubal) one — and the PID history is the setup.",
       "Don't order the endocrine panel (FSH/TSH/testosterone) — that's the workup for IRREGULAR menses (POI/thyroid/PCOS), which bring oligomenorrhea + hot flashes/hirsutism. Laparoscopy needs prior surgery/dyspareunia; mid-cycle LH + progesterone challenge are for ovulatory dysfunction she doesn't have.",
-      "infertility_tubal_hsg"),
+      "infertility_tubal_hsg", extra=["source::NBME"]),
 
     # ===================== b15 (2026-06-28, UWorld) — new content gaps =====================
     C("Exclusively breastfeeding, ~8 wk postpartum: amenorrhea + nighttime hot flushes. "
@@ -186,7 +187,7 @@ TEXT_CARDS = [
       "Sinusoidal pattern = severe FETAL ANEMIA (here ruptured vasa previa → fetal blood loss). Category III → deliver now.",
       "A true sinusoidal tracing (smooth regular sine wave, absent variability) is highly specific for severe fetal anemia. Painless blood-tinged fluid at ROM = torn fetal vessels (vasa previa).",
       "Not cord compression — that's VARIABLE decels (abrupt drop &lt;30s, abrupt return), not a smooth undulation. Not fetal sleep (flat baseline, not sine waves) or head compression (early decels).",
-      "sinusoidal_fhr_anemia"),
+      "sinusoidal_fhr_anemia", extra=["source::NBME"]),
 
     C("Pregnant, pyelonephritis, still febrile at 96h despite a culture-sensitive cephalosporin."
       "<br><br><b>Next step?</b>",
@@ -235,7 +236,7 @@ TEXT_CARDS = [
       "Alpha-thalassemia major (4-gene deletion) → Hb Barts (γ4) → extreme O2 affinity → fetal hypoxia → hydrops.",
       "Microcytosis with NORMAL iron in both parents = a hemoglobinopathy-carrier couple. Fetal Hb (α2γ2) needs alpha chains — absent → Hb Barts → in-utero hydrops.",
       "Not beta-thal major (beta defects are SILENT in utero — fetal Hb uses gamma, not beta — so no hydrops). Not Rh (antibody screen negative). Not spherocytosis (↑MCHC, not micro) or syphilis (no serology/risk factors).",
-      "alpha_thalassemia_hydrops"),
+      "alpha_thalassemia_hydrops", extra=["source::NBME"]),
 
     C("Postmenopausal bleeding + enlarging uterus, prior pelvic radiation 20 yr ago. Biopsy: "
       "BOTH malignant glandular AND malignant spindle cells.<br><br><b>Dx?</b>",
@@ -244,12 +245,69 @@ TEXT_CARDS = [
       "Not leiomyosarcoma (PURE malignant spindle, no glandular). Not adenocarcinoma (pure epithelial). Not leiomyoma (benign, regresses postmenopause — a growing postmeno mass with high-grade cells rules it out).",
       "uterine_carcinosarcoma"),
 
+    # ===================== n1 (2026-06-29, NBME) — card every concept, source::NBME =====================
+    C("Pregnant, fever 38.9, flank pain, pyuria (100 WBC/hpf) with only occasional RBC."
+      "<br><br><b>Most appropriate next step in DIAGNOSIS?</b>",
+      "Urine culture — pyuria with few RBCs points to infection (pyelonephritis); confirm the organism, don't image.",
+      "Pyuria (&gt;10 WBC/hpf) + LOW RBC = infection, not a stone. Culture confirms + guides antibiotics.",
+      "Not CT/IVP (image only if dx uncertain — avoid fetal radiation when pyuria already says infection). Not barium enema (lower GI) or laparoscopy (surgical abdomen).",
+      "pyelo_pregnancy_urine_culture", extra=["source::NBME"]),
+
+    C("On cyclophosphamide: urgency, frequency, GROSS hematuria, STERILE urine, no discharge."
+      "<br><br><b>Dx?</b>",
+      "Hemorrhagic cystitis — a noninfectious cystitis from cyclophosphamide (the acrolein metabolite injures the bladder).",
+      "Cyclophosphamide + gross hematuria + STERILE urine = hemorrhagic cystitis (prevent with mesna + hydration).",
+      "Not infection (urine is sterile). Not bladder calculi (cyclophosphamide isn't a stone risk — it's a hemorrhagic-cystitis risk). Not lithium tox (GI/neuro, not bladder bleeding) or DI (dilute polyuria, no blood).",
+      "cyclophosphamide_hemorrhagic_cystitis", extra=["source::NBME", "nbme-only"]),
+
+    C("Progressive urine loss with a SUDDEN urge she can't suppress, variable volume, no "
+      "cough/Valsalva trigger.<br><br><b>Mechanism?</b>",
+      "Detrusor overactivity — urge incontinence (overactive bladder).",
+      "A SUDDEN urge with no exertional trigger = an involuntary detrusor contraction.",
+      "Not urethral hypermobility or intrinsic sphincter deficiency (those are STRESS incontinence — leak with ↑intra-abdominal pressure / cough). A diuretic raises volume but doesn't cause the detrusor spasm.",
+      "urge_incontinence_detrusor", extra=["source::NBME", "nbme-only"]),
+
+    C("4 days post-TAH/BSO for extensive endometriosis (dense adhesions): severe flank pain, "
+      "fever, CVA tenderness, US shows hydronephrosis + hydroureter.<br><br><b>Most likely cause?</b>",
+      "Iatrogenic ureteral injury (ligation/kinking) — obstruction in a scarred surgical field.",
+      "Postop TIMING + obstructive imaging (hydronephrosis/hydroureter) after adhesion-heavy pelvic surgery = ureteral injury. The fever/pyuria is downstream of the obstruction, not primary pyelo.",
+      "Don't stop at pyelonephritis (it fits the fever/CVA, but the NEW obstruction right after surgery is the underlying cause). Not a stone (no colic/gross hematuria), not endometriosis obstruction (indolent, preop), not ureterovaginal fistula (delayed watery vaginal discharge).",
+      "ureteral_injury_hysterectomy", extra=["source::NBME", "nbme-only"]),
+
+    C("Long-standing PREgestational (type 1) DM with retinopathy + poor control, first trimester."
+      "<br><br><b>Fetus is at greatest risk for what?</b>",
+      "Congenital CARDIAC malformations (eg TGA, VSD) — the classic teratogenic outcome of pregestational hyperglycemia.",
+      "PREgestational DM = high glucose during ORGANOGENESIS → structural anomalies, cardiac most characteristic (also caudal regression, NTDs).",
+      "Not cystic hygroma (Turner/Noonan), diaphragmatic hernia, Potter (ACE-I/ARB/oligo), or trisomy 18 (maternal age) — none are driven by maternal DM. Contrast GESTATIONAL DM → macrosomia/neonatal hypoglycemia, not organogenesis defects.",
+      "pregestational_dm_cardiac", extra=["source::NBME"]),
+
+    C("Prior child has CF, so the mother is an OBLIGATE carrier. She wants this pregnancy's risk."
+      "<br><br><b>Most appropriate screening test?</b>",
+      "Test the PARTNER's CF carrier status (paternal DNA / molecular testing).",
+      "Autosomal recessive: the child needs 2 mutant alleles. The mother's carrier status is already known → the unknown that sets the risk is the FATHER.",
+      "Not maternal DNA (she's already a known carrier — adds nothing). Not karyotype (CF isn't chromosomal). Not serum screen (aneuploidy/NTD). Amnio/CVS are later/invasive — carrier testing comes first.",
+      "cf_carrier_screen_partner", extra=["source::NBME", "nbme-only"]),
+
+    C("Rh-NEGATIVE pregnancy.<br><br><b>(a) what prevents alloimmunization, and WHEN? "
+      "(b) what screen is due at 28 weeks?</b>",
+      "(a) Anti-D (RhoGAM) at the FIRST sensitizing pregnancy — and at 28wk + postpartum if the baby is Rh+. (b) A repeat antibody screen at 28 weeks.",
+      "Prevention is about TIMING: the sensitizing event was the prior pregnancy, so RhoGAM had to be given THEN. At 28wk an Rh-neg patient gets a repeat antibody screen (then RhoGAM if still negative).",
+      "RhoGAM in the CURRENT pregnancy can't undo sensitization that already happened; plasmapheresis treats established disease, doesn't prevent it. At 28wk it's not NST/quad/GBS (wrong indications/timing).",
+      "rh_prevention_screening", extra=["source::NBME"]),
+
+    C("Healthy preconception patient, very athletic (runs 60 mi/wk), normal BMI and exam."
+      "<br><br><b>Her pregnancy is at increased risk for…?</b>",
+      "Nothing — moderate exercise confers NO increased risk in a healthy singleton pregnancy (the no-increased-risk option is the answer).",
+      "The NBME trap is EXPECTING a complication. Moderate activity is safe/encouraged; the only caution is fall/high-impact/contact sports.",
+      "Not chorioamnionitis, oligohydramnios, previa, or postdates — none are caused by exercise (it actually lowers obesity-related risk). This is a 'reassurance' stem — same instinct as the over-intervention reflex.",
+      "exercise_pregnancy_no_risk", extra=["source::NBME"]),
+
     C("Postmenopausal woman: recurrent 'UTIs' with NEGATIVE cultures, dyspareunia, postcoital "
       "spotting. Exam: pale thin walls, lost rugae. Thin endometrial stripe.<br><br><b>Treatment?</b>",
       "Topical vaginal estrogen (genitourinary syndrome of menopause).",
       "Low estrogen → thin friable epithelium → phantom 'UTIs' (neg cultures) + atrophy. Thin stripe reassures it's not cancer.",
       "Don't treat the phantom UTI with antibiotics or urgency with oxybutynin. But in postmenopausal BLEEDING, rule out cancer (biopsy) before calling it atrophy.",
-      "atrophic_vaginitis_GSM"),
+      "atrophic_vaginitis_GSM", extra=["source::NBME"]),
 
     C("46,XX infant with ambiguous (virilized) genitalia + maternal virilization during the "
       "pregnancy. 17-OHP is NORMAL, electrolytes normal.<br><br><b>Enzyme defect?</b>",
@@ -284,7 +342,7 @@ TEXT_CARDS = [
       "Sequential estrogen-progestin challenge. Bleed = patent outflow → it was hypoestrogenism; no bleed = outflow obstruction (Asherman).",
       "No bleed on progestin alone = either no estrogen priming OR an outflow problem; the E+P challenge separates them.",
       "Don't stop at the negative progestin challenge — it doesn't distinguish the two causes.",
-      "progestin_challenge"),
+      "progestin_challenge", extra=["source::NBME"]),
 
     C("Heavy menstrual bleeding, wants children in a few years (planned oocyte cryo).<br><br>"
       "<b>What's contraindicated, and what do you offer?</b>",
@@ -318,7 +376,7 @@ TEXT_CARDS = [
       "Colposcopy — at any age, including 21–24 and in pregnancy (no LEEP/ECC if pregnant).",
       "Reflex HPV testing and repeat cytology are for LOW-grade results (ASC-US/LSIL), not HSIL.",
       "Don't downgrade the workup. HSIL needs direct visualization now. (Missed 2×.)",
-      "HSIL_colposcopy"),
+      "HSIL_colposcopy", extra=["source::NBME"]),
 
     C("7-year-old: breast/areolar development + vaginal estrogen signs + a UNILATERAL adnexal mass. "
       "Advanced bone age.<br><br><b>Tumor?</b>",
@@ -332,7 +390,7 @@ TEXT_CARDS = [
       "46,XY — complete androgen insensitivity (broken androgen receptor).",
       "Testes make testosterone + AMH → Müllerian regression (no uterus) but female externals; can't respond to androgen → scant hair.",
       "Hair amount is the discriminator: scant + no uterus = CAIS (46,XY); normal hair + ovaries = MRKH (46,XX). Don't slip to Klinefelter 47,XXY.",
-      "androgen_insensitivity"),
+      "androgen_insensitivity", misses="n5", extra=["source::NBME"]),
 
     C("Prepubertal girl: persistent foul, sometimes bloody vaginal discharge, no response to antifungals. "
       "Friable material seen.<br><br><b>Management?</b>",
@@ -452,7 +510,7 @@ TEXT_CARDS = [
       "Cervical insufficiency → history-indicated cerclage at 12–14 weeks.",
       "'Silent/painless dilation' separates it from preterm labor (painful contractions). Classic after cervical trauma (LEEP, cone, D&E).",
       "Cerclage needs ≥2 prior losses; with fewer (e.g., one prior conization), do 2nd-tri TVUS cervical-length surveillance first.",
-      "cervical_insufficiency"),
+      "cervical_insufficiency", extra=["source::NBME"]),
 
     C("Postpartum day 1: firm uterus at/below the umbilicus, lochia rubra, a postural gush of pooled "
       "blood, vitals stable.<br><br><b>Management?</b>",
@@ -508,7 +566,7 @@ TEXT_CARDS = [
       "Observe / reassure — no treatment, no workup.",
       "Asymptomatic Actinomyces = colonization → keep the IUD, no antibiotics. Now-normotensive prior gestational HTN → routine screening, not a 24-hr urine.",
       "This is your #1 cross-bank error: trusting 'normal' under distraction. The stem buries 'observe' under pressure to do something.",
-      "well_patient_observe", misses="b14 b15"),
+      "well_patient_observe", misses="b14 b15 n4"),
 
     C("Twin ultrasound: the dividing membrane shows a lambda (twin-peak) sign.<br><br>"
       "<b>Chorionicity, timing of the split, and membrane layer count?</b>",
@@ -592,7 +650,7 @@ TEXT_CARDS = [
       "Augment with oxytocin (inadequate power, MVU &lt;200).",
       "The fork is POWER: if contractions are inadequate, augment before calling it a cesarean.",
       "Carboprost is a PPH uterotonic, NOT a labor-augmentation agent. Vacuum is contraindicated before full dilation.",
-      "labor_arrest_oxytocin"),
+      "labor_arrest_oxytocin", extra=["source::NBME"]),
 
     C("Transverse or breech lie noted at 32 weeks.<br><br>"
       "<b>Management now?</b>",
@@ -790,14 +848,14 @@ TEXT_CARDS = [
       "Postpartum endometritis.",
       "Fever + uterine tenderness after delivery (esp. post-cesarean) = endometritis; the clean incision rules out a surgical-site infection.",
       "Not retained placenta — that's a hemorrhage problem (boggy + bleeding). Fever + tenderness = infection. Tx: clindamycin + gentamicin.",
-      "postpartum_endometritis"),
+      "postpartum_endometritis", misses="n4", extra=["source::NBME"]),
 
     C("After prolonged high lithotomy: 1/5 knee extension, absent patellar reflex, numb anterior "
       "thigh. Hip ADDUCTION is 5/5.<br><br><b>Mechanism?</b>",
       "Femoral nerve compression from excessive hip flexion (under the inguinal ligament).",
       "Knee-extension weakness + lost patellar reflex + anterior-thigh sensory loss = femoral nerve; preserved hip adduction (5/5) rules out the obturator nerve.",
       "It's hip FLEXION, not abduction/adduction, that pins the femoral nerve beneath the inguinal ligament in stirrups.",
-      "femoral_nerve_lithotomy"),
+      "femoral_nerve_lithotomy", extra=["source::NBME"]),
 
     C("Maternal rash + arthralgia; now fetal hydrops with MCA peak systolic velocity 1.7 MoM. "
       "Fetal heart is structurally normal.<br><br><b>Mechanism of the hydrops?</b>",
@@ -820,7 +878,7 @@ TEXT_CARDS = [
       "Ovarian hyperstimulation syndrome (OHSS).",
       "Post-ovulation-induction enlarged ovaries + third-spacing/ascites + hemoconcentration = OHSS.",
       "It follows fertility treatment specifically — don't chase other causes of ascites/distension that don't track with ovulation induction.",
-      "ohss"),
+      "ohss", extra=["source::NBME"]),
 
     C("2nd/3rd-trimester pruritic urticarial plaques starting AROUND THE UMBILICUS, progressing "
       "to TENSE BULLAE.<br><br><b>Diagnosis?</b>",
