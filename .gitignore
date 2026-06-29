@@ -8,6 +8,10 @@ venv/
 # Build output (the deck is regenerated from source; the sample lives in examples/)
 /*.apkg
 
+# Personal / bring-your-own raster images referenced via img="local_media/..."
+# (kept out of the repo; the build degrades to a text-only card if absent)
+local_media/
+
 # OS / editor
 .DS_Store
 *.swp

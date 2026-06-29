@@ -2,7 +2,7 @@
 
 A small, data-driven pipeline that turns the topics you *actually keep missing* into a structured Anki deck — and lets you rebuild that deck from source without ever losing your review history.
 
-Built on [`genanki`](https://github.com/kerrickstaley/genanki). Shipped with a worked example: an OB/GYN shelf-exam deck (113 cards: 9 image + 104 text) generated from a real question-log.
+Built on [`genanki`](https://github.com/kerrickstaley/genanki). Shipped with a worked example: an OB/GYN shelf-exam deck (125 cards: 9 image + 116 text) generated from a real question-log.
 
 > **This repo is a live record, not a frozen demo.** I'm a med student actively using `weakspot` for shelf prep — the example deck *is* my real weak set, and it grows as I keep logging question blocks. Card counts move, clusters get added, and the repeat-miss badges tick up. See [A live record](#a-live-record) below.
 
@@ -58,7 +58,7 @@ build_deck.py     model/template + image cards; renders SVG→PNG at build time;
 text_cards.py     the text-only cards (TEXT_CARDS) + mnemonics (MNEM), keyed by cluster
 taxonomy.py       cluster → (system, discipline) map + the tag vocabulary
 *.svg             source for each image card (plain-text, editable, version-controlled)
-examples/         a built sample deck (OB/GYN shelf, 113 cards)
+examples/         a built sample deck (OB/GYN shelf, 125 cards)
 ```
 
 The pipeline is one-directional: **weak-area log → SVG → (temp) PNG → `.apkg` → import.** Rendered PNGs are written to a temp dir, bundled into the deck, and deleted — only the editable SVG sources live in the repo.
@@ -72,7 +72,8 @@ python3 build_deck.py      # writes the .apkg; double-click to import into Anki
 
 Add a card:
 - **text** → add a `C(front, answer, discrim, trap, cluster)` to `TEXT_CARDS` in `text_cards.py`
-- **image** → write an SVG, add a card dict (with `svg="..."`) to `cards` in `build_deck.py`
+- **image (schematic)** → write an SVG, add a card dict (with `svg="..."`) to `cards` in `build_deck.py`
+- **image (ready-made raster)** → set `img="..."` on a card dict — a real photo/scan committed to the repo, or a personal/bring-your-own file in the gitignored `local_media/`. If a `local_media/` file is absent (e.g. on a fresh clone) the card builds text-only instead of failing.
 - classify any new cluster in `taxonomy.py` (the build warns you if you forget)
 
 > **SVG→PNG rendering** uses macOS `qlmanage` (Quick Look). On Linux, swap that one `subprocess` call in `build_deck.py` for `rsvg-convert` or `inkscape`.

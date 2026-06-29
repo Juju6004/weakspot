@@ -166,6 +166,7 @@ cards = [
         ),
         mnem="No HTN <i>and</i> no protein, no eclampsia. Both boxes ticked before you reach for the Mg.",
         cluster="eclampsia_mimics",
+        misses="b16",
         extra=["discriminator"],
     ),
     dict(
@@ -207,6 +208,7 @@ cards = [
         ),
         mnem="Constant = Conduit (fistula). If the leak has a trigger or a schedule, it's NOT VVF.",
         cluster="urinary_leakage",
+        misses="b16",
         extra=["discriminator"],
     ),
     dict(
@@ -309,6 +311,7 @@ cards = [
         ),
         mnem="Cauliflower = condyloma (HPV). Pearly with a belly-button dimple = molluscum (pox). Vaccine hits the cauliflower, not the pearls.",
         cluster="condyloma_hpv",
+        misses="b16",
         extra=["discriminator"],
     ),
 ]
@@ -347,6 +350,7 @@ try:
         front_field = badge + c["front"]
 
         svg = c.get("svg")
+        img = c.get("img")  # a ready-made raster (real photo/scan or a screenshot)
         if svg:
             svg_path = os.path.join(HERE, svg)
             if not os.path.exists(svg_path):
@@ -361,6 +365,19 @@ try:
             os.replace(os.path.join(build_dir, svg + ".png"), png_path)
             media.append(png_path)
             img_field = f'<img src="{png_name}">'
+        elif img:
+            img_path = os.path.join(HERE, img)
+            if os.path.exists(img_path):
+                media.append(img_path)
+                img_field = f'<img src="{os.path.basename(img_path)}">'
+            elif img.startswith("local_media/"):
+                # local_media/ is gitignored (personal / bring-your-own images).
+                # A fresh clone won't have it, so build the card text-only rather
+                # than breaking the deck for everyone.
+                print(f"  [media] local image absent, building text-only: {img}")
+                img_field = ""
+            else:
+                raise SystemExit(f"Missing image: {img_path}")
         else:
             img_field = ""  # text-only card
         note = genanki.Note(

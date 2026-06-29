@@ -85,7 +85,7 @@ TEXT_CARDS = [
       "Levothyroxine — treat the hypothyroidism; the prolactin normalizes on its own.",
       "Primary hypothyroidism → ↑TRH, which also stimulates lactotrophs → hyperprolactinemia.",
       "Don't reflex to MRI or a dopamine agonist (cabergoline/bromocriptine). Only chase a prolactinoma if prolactin stays up after TSH is fixed.",
-      "galactorrhea_hyperprolactinemia", misses="b9 b11"),
+      "galactorrhea_hyperprolactinemia", misses="b9 b11 b16"),
 
     C("Woman &lt;40 with amenorrhea + hot flashes + vaginal atrophy. Hormone panel shows high "
       "FSH and high LH.<br><br><b>What is the estradiol doing, and what's the diagnosis?</b>",
@@ -158,6 +158,91 @@ TEXT_CARDS = [
       "No advance directive → substituted judgment (reconstruct HER wishes). The surrogate's job is to estimate her choice, not impose his own.",
       "Don't default to the husband's preference or the parents' values. Clinical findings/prognosis inform the choice, but the governing question is what SHE would have wanted.",
       "substituted_judgment"),
+
+    # ===================== b16 (2026-06-29, Ora) — new content gaps =====================
+    C("9-wk dates but the fundus is at the UMBILICUS: hyperemesis, thyrotoxicosis, HTN, "
+      "bilateral adnexal (theca lutein) cysts, very high hCG.<br><br><b>Dx + the US finding?</b>",
+      "Complete hydatidiform mole — US shows a 'snowstorm' / cystic intrauterine mass with no fetus.",
+      "Uterus >> dates + thyrotoxicosis (hCG cross-reacts at the TSH receptor) + theca lutein cysts + sky-high hCG = molar. The mass is cystic tissue, not a fetus.",
+      "Not ectopic (that's pain + bleeding + HYPOtension + empty uterus, not HTN/thyrotoxicosis with a bulky uterus). Not a missed AB (hCG falling, symptoms regress) or twins (wouldn't give frank thyrotoxicosis / large theca lutein cysts).",
+      "complete_mole"),
+
+    C("Na 115 with a SEIZURE (eg paraneoplastic SIADH from ovarian cancer), urine osm 600."
+      "<br><br><b>Immediate treatment?</b>",
+      "3% hypertonic saline — reverse the cerebral edema now.",
+      "Symptomatic (seizure/coma) hyponatremia is a neuro emergency → osmotic correction with 3% saline, regardless of the cause.",
+      "Not conivaptan (aquaresis, onset too slow for an acute seizure). Not fluid restriction (days — fine only for mild/asymptomatic SIADH). Not 0.9% saline (in SIADH urine osm > NS osm → worsens the Na). Antiepileptics won't fix a metabolic seizure.",
+      "symptomatic_hyponatremia_3pct"),
+
+    C("Primary amenorrhea, Tanner 5, 46,XX, NORMAL ovaries, normal pubic/axillary hair, "
+      "female-range testosterone — but uterus/cervix not visualized.<br><br><b>Dx?</b>",
+      "Müllerian agenesis (MRKH) — absent uterus + upper vagina, with normal ovaries and normal secondary sex characteristics.",
+      "46,XX + normal ovaries → normal estrogen (breasts) and normal hair; the müllerian structures just didn't form. Ovaries are spared because they aren't müllerian-derived.",
+      "Not AIS (46,XY, male-range testosterone, SCANT sexual hair). Not hypothalamic amenorrhea or POI (uterus is PRESENT in both). Not Swyer (46,XY streak gonads → uterus present, no puberty).",
+      "mullerian_agenesis_mrkh"),
+
+    C("AROM → immediate blood-tinged fluid; mother stable + pain-free. FHR: smooth undulating "
+      "sine wave, 3–5 cycles/min, absent variability.<br><br><b>What does that tracing mean?</b>",
+      "Sinusoidal pattern = severe FETAL ANEMIA (here ruptured vasa previa → fetal blood loss). Category III → deliver now.",
+      "A true sinusoidal tracing (smooth regular sine wave, absent variability) is highly specific for severe fetal anemia. Painless blood-tinged fluid at ROM = torn fetal vessels (vasa previa).",
+      "Not cord compression — that's VARIABLE decels (abrupt drop &lt;30s, abrupt return), not a smooth undulation. Not fetal sleep (flat baseline, not sine waves) or head compression (early decels).",
+      "sinusoidal_fhr_anemia"),
+
+    C("Pregnant, pyelonephritis, still febrile at 96h despite a culture-sensitive cephalosporin."
+      "<br><br><b>Next step?</b>",
+      "Renal ultrasound — image for a complication (abscess, stone, obstruction). US is the preferred first imaging in pregnancy.",
+      "Persistent fever &gt;48–72h on appropriate antibiotics means look for a structural complication; in pregnancy you start with US to avoid fetal radiation.",
+      "Not CT (ionizing radiation — only if US nondiagnostic). Not switching/adding antibiotics (culture is sensitive → the problem is structural, not the drug). Not inducing labor (treat the infection; delivery at 24wk = high neonatal morbidity).",
+      "pyelonephritis_persistent_imaging"),
+
+    C("37wk, HTN 174/112, platelets 48k, AST 210, LDH 1200, RUQ pain, schistocytes on smear."
+      "<br><br><b>Mechanism of the hemolysis?</b>",
+      "Microangiopathic hemolytic anemia (MAHA) — RBCs mechanically fragmented (schistocytes) crossing fibrin-rich, vasospastic microvasculature. Coombs-NEGATIVE.",
+      "HELLP hemolysis is mechanical/shear, not immune — Coombs-negative, schistocytes, ↑LDH. The HTN + thrombocytopenia + liver injury cluster rides along.",
+      "Not antibody-mediated (AIHA is Coombs-POSITIVE, no HTN/liver injury). Not G6PD oxidative (Heinz bodies), not splenic sequestration, not marrow suppression (that's ↓production with low retic — HELLP is ↑destruction).",
+      "hellp_hemolysis_maha"),
+
+    C("SLE mother. Fetus: atrial rate 140, ventricular rate 55 (AV dissociation), no structural "
+      "defect.<br><br><b>Mechanism?</b>",
+      "Maternal anti-Ro/SSA + anti-La/SSB IgG cross the placenta → irreversible fibrosis of the fetal AV node → congenital complete heart block.",
+      "Atrial rate normal (140) but ventricular slow (55) = block AT the AV node, SA intact. It's direct antibody binding to the fetal conduction system.",
+      "Not immune-complex vasculitis (Type III — that's maternal organ damage like lupus nephritis). Not coronary thrombosis (APS). Not SA-node suppression (that would give a matched 1:1 sinus brady).",
+      "neonatal_lupus_heart_block"),
+
+    C("Chronic urinary frequency + SUPRApubic pain that worsens as the bladder fills and is "
+      "RELIEVED by voiding. Cultures repeatedly negative, normal pelvic exam.<br><br><b>Dx?</b>",
+      "Interstitial cystitis (bladder pain syndrome) — pain with filling, relief with voiding, negative infection workup.",
+      "Pain is suprapubic, fill-worsened / void-relieved, with a NORMAL exam and negative cultures — that pattern is IC.",
+      "Not urethral diverticulum (tender ANTERIOR vaginal-wall mass that expresses discharge — her exam is normal). Not recurrent cystitis (needs positive cultures). Not OAB (urgency without pain) or prolapse (bulge worse with standing).",
+      "interstitial_cystitis"),
+
+    C("Complex MULTILOCULATED thick-walled adnexal mass + fever 38.4, WBC 16,500, ESR 85, and a "
+      "prior PID hospitalization.<br><br><b>Dx?</b>",
+      "Tubo-ovarian abscess (TOA) — a complex inflammatory adnexal mass, classically after PID.",
+      "A complex multiloculated mass PLUS a systemic inflammatory profile (fever, leukocytosis, ↑ESR) + prior PID = TOA. The infection signature is the tell.",
+      "Not a pedunculated leiomyoma (solid, shadowing, no fever unless acute degeneration). Not endometrioma (homogeneous ground-glass, no fever) or ovarian carcinoma (mass + weight loss, not high fever/leukocytosis). A sigmoid diverticular abscess sits by bowel, not discrete adnexa.",
+      "tubo_ovarian_abscess"),
+
+    C("Neonate: macrocephaly/hydrocephalus, chorioretinitis (yellow-white retinal scars), "
+      "hepatosplenomegaly.<br><br><b>Head-CT calcification pattern + Dx?</b>",
+      "Congenital toxoplasmosis — DIFFUSE parenchymal (cortical/basal ganglia) intracranial calcifications.",
+      "Toxo triad = chorioretinitis + hydrocephalus/macrocephaly + DIFFUSE parenchymal calcifications.",
+      "Not CMV (PERIVENTRICULAR calcifications + MICROcephaly + hearing loss). Not Dandy-Walker (vermis hypoplasia, no chorioretinitis/HSM), not neonatal HSV (temporal necrosis), not tuberous sclerosis (subependymal nodules).",
+      "congenital_toxoplasmosis"),
+
+    C("Non-immune hydrops fetalis. BOTH parents microcytic (MCV 70–72) with NORMAL ferritin; "
+      "maternal antibody screen negative.<br><br><b>Dx + why?</b>",
+      "Alpha-thalassemia major (4-gene deletion) → Hb Barts (γ4) → extreme O2 affinity → fetal hypoxia → hydrops.",
+      "Microcytosis with NORMAL iron in both parents = a hemoglobinopathy-carrier couple. Fetal Hb (α2γ2) needs alpha chains — absent → Hb Barts → in-utero hydrops.",
+      "Not beta-thal major (beta defects are SILENT in utero — fetal Hb uses gamma, not beta — so no hydrops). Not Rh (antibody screen negative). Not spherocytosis (↑MCHC, not micro) or syphilis (no serology/risk factors).",
+      "alpha_thalassemia_hydrops"),
+
+    C("Postmenopausal bleeding + enlarging uterus, prior pelvic radiation 20 yr ago. Biopsy: "
+      "BOTH malignant glandular AND malignant spindle cells.<br><br><b>Dx?</b>",
+      "Uterine carcinosarcoma (MMMT) — a biphasic malignant tumor (epithelial + mesenchymal), strongly linked to prior pelvic radiation.",
+      "The biphasic histology (malignant glandular AND spindle) is the tell — that combination defines carcinosarcoma. Prior radiation is the classic risk.",
+      "Not leiomyosarcoma (PURE malignant spindle, no glandular). Not adenocarcinoma (pure epithelial). Not leiomyoma (benign, regresses postmenopause — a growing postmeno mass with high-grade cells rules it out).",
+      "uterine_carcinosarcoma"),
 
     C("Postmenopausal woman: recurrent 'UTIs' with NEGATIVE cultures, dyspareunia, postcoital "
       "spotting. Exam: pale thin walls, lost rugae. Thin endometrial stripe.<br><br><b>Treatment?</b>",
